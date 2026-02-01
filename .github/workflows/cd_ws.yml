@@ -22,4 +22,4 @@ jobs:
           context: .
           file: ./docker/Dockerfile.ws
           push: true
-          tags: bhaveshmpatel/todo-ws:{{ github.sha }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/todo-ws:${{ github.sha }}
