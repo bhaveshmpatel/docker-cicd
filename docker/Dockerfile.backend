@@ -1,0 +1,20 @@
+FROM oven/bun:1-alpine
+
+WORKDIR /usr/src/app
+
+COPY packages ./
+COPY bun.lock ./
+
+COPY package.json ./
+COPY turbo.json ./
+
+COPY apps/backend ./
+
+RUN bun install
+RUN bun run db:generate
+
+COPY . .
+
+RUN bun install
+
+CMD [ "bun","run", "start:backend" ]
