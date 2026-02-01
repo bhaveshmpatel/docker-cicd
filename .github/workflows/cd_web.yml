@@ -22,6 +22,6 @@ jobs:
           context: .
           file: ./docker/Dockerfile.web
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/todo-web:{{ github.sha }}
+          tags: bhaveshmpatel/todo-web:{{ github.sha }}
           build-args: |
             DATABASE_URL=${{ secrets.DATABASE_URL }}
